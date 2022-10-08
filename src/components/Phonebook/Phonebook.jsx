@@ -50,8 +50,6 @@ export default function Phonebook() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const name = e.target.name.value;
-    const number = e.target.number.value;
     const contactsNames = contacts.find(contact => contact.name === name);
     const contactsNumbers = contacts.find(contact => contact.number === number);
 
@@ -73,7 +71,7 @@ export default function Phonebook() {
         name,
         number,
       };
-      return [...prevContacts, newContact];
+      return [newContact, ...prevContacts];
     });
     return reset();
   };
